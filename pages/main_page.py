@@ -34,6 +34,14 @@ class MainPage(BasePage):
     def wait_visibility_of_main_header(self):
         self.wait_visibility_of_element(MainPageLocators.main_header)
 
+    @allure.step('Получить текущий URL')
+    def get_page_url(self):
+        return self.get_current_url()
+
+    @allure.step("Ожидание загрузки URL")
+    def wait_for_url_change(self):
+        self.wait.until_not(EC.url_to_be("about:blank"))
+
     @allure.step('Проверить отображение заголовка главной страницы')
     def check_displaying_of_main_header(self):
         return self.check_displaying_of_element(MainPageLocators.main_header)
@@ -58,10 +66,3 @@ class MainPage(BasePage):
     def get_displayed_text_from_faq_answer(self, data):
         return self.get_text_on_element(MainPageLocators.faq_answers_items[data])
 
-    @allure.step('Получить текущий URL')
-    def get_page_url(self):
-        return self.get_current_url()
-
-    @allure.step("Ожидание загрузки URL")
-    def wait_for_url_change(self):
-        self.wait.until_not(EC.url_to_be("about:blank"))
