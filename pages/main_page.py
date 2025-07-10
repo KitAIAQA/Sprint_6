@@ -1,12 +1,11 @@
 import allure
-from selenium.webdriver.support import expected_conditions as EC
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 
 
 class MainPage(BasePage):
 
-    allure.step('Подождать прогрузки кнопки "Заказать" в хэдере')
+    @allure.step('Подождать прогрузки кнопки "Заказать" в хэдере')
     def wait_visibility_of_order_button_in_header(self):
         self.wait_visibility_of_element(MainPageLocators.order_button_in_header)
 
@@ -40,7 +39,7 @@ class MainPage(BasePage):
 
     @allure.step("Ожидание загрузки URL")
     def wait_for_url_change(self):
-        self.wait.until_not(EC.url_to_be("about:blank"))
+        self.wait_for_url_not_to_be("about:blank")
 
     @allure.step('Проверить отображение заголовка главной страницы')
     def check_displaying_of_main_header(self):
@@ -65,4 +64,3 @@ class MainPage(BasePage):
     @allure.step('Получить текст нужного номера ответа в аккордеоне "Вопросы о важном"')
     def get_displayed_text_from_faq_answer(self, data):
         return self.get_text_on_element(MainPageLocators.faq_answers_items[data])
-

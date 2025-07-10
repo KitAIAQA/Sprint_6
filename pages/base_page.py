@@ -40,3 +40,7 @@ class BasePage:
     @allure.step('Проверить текущий URL')
     def get_current_url(self):
         return self.driver.current_url
+
+    @allure.step('Общий метод для ожидания изменения URL')
+    def wait_for_url_not_to_be(self, url):
+        self.wait.until_not(EC.url_to_be(url))
