@@ -13,3 +13,25 @@ class MainPageLocators:
         6: [By.XPATH, '//div[@id="accordion__heading-5"]/parent::div'],
         7: [By.XPATH, '//div[@id="accordion__heading-6"]/parent::div'],
         8: [By.XPATH, '//div[@id="accordion__heading-7"]/parent::div'],
+    }
+
+    faq_answers_items = {
+        1: (By.XPATH, '//div[@id="accordion__panel-0"]'),
+        2: (By.XPATH, '//div[@id="accordion__panel-1"]'),
+        3: (By.XPATH, '//div[@id="accordion__panel-2"]'),
+        4: (By.XPATH, '//div[@id="accordion__panel-3"]'),
+        5: (By.XPATH, '//div[@id="accordion__panel-4"]'),
+        6: (By.XPATH, '//div[@id="accordion__panel-5"]'),
+        7: (By.XPATH, '//div[@id="accordion__panel-6"]'),
+        8: (By.XPATH, '//div[@id="accordion__panel-7"]'),
+    }
+
+    # Кнопки на главной странице
+    order_button_in_main = (By.XPATH, '//div[contains(@class, "Home_FinishButton")]/button')
+    order_button_in_header = (By.XPATH, '//div[@class = "Header_Nav__AGCXC"]/button[text() = "Заказать"]')
+
+    # Лого в шапке
+    main_header = (By.XPATH, '//div[contains(@class, "Home_Header__iJKdX")]')
+    header_logo_scooter = (By.XPATH, '//a[@href="/" and contains(@class, "Header_LogoScooter")]')
+    header_logo_yandex = (By.XPATH, '//a[@href="//yandex.ru" and contains(@class, "Header_LogoYandex")]')
+    title_dzen = (By.TAG_NAME, 'title')
